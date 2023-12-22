@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('jeremy-nx-monorepo-e2e', () => {
+describe('countries-app-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {

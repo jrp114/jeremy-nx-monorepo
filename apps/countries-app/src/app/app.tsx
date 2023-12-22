@@ -6,7 +6,7 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <div>
-      <NxWelcome title="jeremy-nx-monorepo" />
+      <NxWelcome title="countries-app" />
     </div>
   );
 }

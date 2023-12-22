@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/jeremy-nx-monorepo',
+  cacheDir: '../../node_modules/.vite/apps/countries-app',
 
   server: {
     port: 4200,
@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/jeremy-nx-monorepo',
+    outDir: '../../dist/apps/countries-app',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
@@ -42,7 +42,7 @@ export default defineConfig({
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/jeremy-nx-monorepo',
+      reportsDirectory: '../../coverage/apps/countries-app',
       provider: 'v8',
     },
   },

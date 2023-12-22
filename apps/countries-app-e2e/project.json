@@ -1,22 +1,22 @@
 {
-  "name": "jeremy-nx-monorepo-e2e",
+  "name": "countries-app-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/jeremy-nx-monorepo-e2e/src",
+  "sourceRoot": "apps/countries-app-e2e/src",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/jeremy-nx-monorepo-e2e/cypress.config.ts",
+        "cypressConfig": "apps/countries-app-e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "jeremy-nx-monorepo:serve"
+        "devServerTarget": "countries-app:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "jeremy-nx-monorepo:serve:production"
+          "devServerTarget": "countries-app:serve:production"
         },
         "ci": {
-          "devServerTarget": "jeremy-nx-monorepo:serve-static"
+          "devServerTarget": "countries-app:serve-static"
         }
       }
     },
@@ -25,6 +25,6 @@
       "outputs": ["{options.outputFile}"]
     }
   },
-  "implicitDependencies": ["jeremy-nx-monorepo"],
+  "implicitDependencies": ["countries-app"],
   "tags": []
 }

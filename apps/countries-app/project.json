@@ -1,7 +1,7 @@
 {
-  "name": "jeremy-nx-monorepo",
+  "name": "countries-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/jeremy-nx-monorepo/src",
+  "sourceRoot": "apps/countries-app/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/jeremy-nx-monorepo"
+        "outputPath": "dist/apps/countries-app"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "jeremy-nx-monorepo:build"
+        "buildTarget": "countries-app:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "jeremy-nx-monorepo:build:development",
+          "buildTarget": "countries-app:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "jeremy-nx-monorepo:build:production",
+          "buildTarget": "countries-app:build:production",
           "hmr": false
         }
       }
@@ -41,14 +41,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "jeremy-nx-monorepo:build"
+        "buildTarget": "countries-app:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "jeremy-nx-monorepo:build:development"
+          "buildTarget": "countries-app:build:development"
         },
         "production": {
-          "buildTarget": "jeremy-nx-monorepo:build:production"
+          "buildTarget": "countries-app:build:production"
         }
       }
     },
@@ -56,7 +56,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/jeremy-nx-monorepo"
+        "reportsDirectory": "../../coverage/apps/countries-app"
       }
     },
     "lint": {
@@ -66,7 +66,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "jeremy-nx-monorepo:build"
+        "buildTarget": "countries-app:build"
       }
     }
   },
