@@ -1,0 +1,30 @@
+{
+  "name": "jeremy-nx-monorepo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/jeremy-nx-monorepo-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/jeremy-nx-monorepo-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "jeremy-nx-monorepo:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "jeremy-nx-monorepo:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "jeremy-nx-monorepo:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "implicitDependencies": ["jeremy-nx-monorepo"],
+  "tags": []
+}

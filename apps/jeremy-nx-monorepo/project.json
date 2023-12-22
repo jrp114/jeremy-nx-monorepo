@@ -1,0 +1,74 @@
+{
+  "name": "jeremy-nx-monorepo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/jeremy-nx-monorepo/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/jeremy-nx-monorepo"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "jeremy-nx-monorepo:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "jeremy-nx-monorepo:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "jeremy-nx-monorepo:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "jeremy-nx-monorepo:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "jeremy-nx-monorepo:build:development"
+        },
+        "production": {
+          "buildTarget": "jeremy-nx-monorepo:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/apps/jeremy-nx-monorepo"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "jeremy-nx-monorepo:build"
+      }
+    }
+  },
+  "tags": []
+}
