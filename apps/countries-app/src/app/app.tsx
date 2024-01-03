@@ -3,11 +3,7 @@
 import { FeatureHome } from '@jeremy-nx-monorepo/countries';
 
 export function App() {
-  return (
-    <div>
-      <FeatureHome />
-    </div>
-  );
+  return <FeatureHome />;
 }
 
 export default App;
