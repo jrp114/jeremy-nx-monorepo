@@ -18,7 +18,7 @@ export const countriesApi = {
       );
       return countries
         .json()
-        .then((data) => data.map((country) => mapCard(country)));
+        .then((data) => data.map((country: any) => mapCard(country)));
     } catch (error) {
       console.log(error);
       return [];

@@ -1,6 +1,6 @@
 import { Country } from './countries-api';
 
-export const mapCard = (country): Country => {
+export const mapCard = (country: any): Country => {
   return {
     name: country.name.common,
     capital: country.capital.join(', '),
