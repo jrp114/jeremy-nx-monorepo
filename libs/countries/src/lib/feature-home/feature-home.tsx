@@ -1,26 +1,54 @@
 import { Country, countriesApi } from '@jeremy-nx-monorepo/shared/api';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '../layout/layout';
 import Card from './card';
 import Dropdown, { DropdownOption } from './dropdown';
+import { InputField } from './input-field';
 
 export function FeatureHome() {
   const [countries, setCountries] = useState<Array<Country>>([]);
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [region, setRegion] = useState<string | null>(null);
+  const ref = useRef<AbortController>();
 
   useEffect(() => {
     countriesApi.all().then((res) => setCountries(res));
   }, []);
 
   const handleDropdownChange = useCallback((v: DropdownOption) => {
-    setRegion(v.label);
     countriesApi.byRegion(v.value).then((res) => setCountries(res));
   }, []);
+
+  const handleSearchChange = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      // we'll abort any previous request
+      if (ref.current) {
+        ref.current.abort();
+      }
+      // we'll create a new AbortController for each request
+      ref.current = new AbortController();
+      const signal = ref.current.signal;
+      if (e.target.value !== '') {
+        countriesApi
+          .byName(e.target.value, signal)
+          .then((res) => setCountries(res))
+          .catch(() => {});
+      } else {
+        const res = await countriesApi.all();
+        setCountries(res);
+      }
+    },
+    []
+  );
 
   return (
     <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
       <div className="tw-flex tw-justify-between tw-px-14 tw-pt-6">
+        <InputField
+          darkMode={darkMode}
+          handleSearchChange={handleSearchChange}
+          placeholder="Search for a country..."
+        />
         <Dropdown
           classes={
             darkMode

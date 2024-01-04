@@ -33,4 +33,16 @@ export const countriesApi = {
       .json()
       .then((data) => data.map((country: any) => mapCard(country)));
   },
+  byName: async (name: string, signal: AbortSignal) => {
+    const countries = await fetch(
+      countriesUrl +
+        `/name/${name}?fields=name,capital,flags,population,region`,
+      {
+        signal,
+      }
+    );
+    return countries
+      .json()
+      .then((data) => data.map((country: any) => mapCard(country)));
+  },
 };
