@@ -16,6 +16,7 @@ export function FeatureHome() {
   }, []);
 
   const handleDropdownChange = useCallback((v: DropdownOption) => {
+    setRegion(v.label);
     countriesApi.byRegion(v.value).then((res) => setCountries(res));
   }, []);
 
