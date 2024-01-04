@@ -8,27 +8,25 @@ export interface LayoutProps {
 
 export function Layout(props: LayoutProps) {
   return (
-    <div className="tw-font-nunito">
+    <div
+      className={classNames('tw-font-nunito', {
+        'tw-text-countries-dark-text': props.darkMode,
+        'tw-text-countries-light-text': !props.darkMode,
+      })}
+    >
       <div
         className={classNames(
           'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-sticky',
           {
-            'tw-bg-countries-dark-background tw-text-countries-dark-text':
-              props.darkMode,
-            ' tw-bg-countries-light-background tw-text-countries-light-text':
-              !props.darkMode,
+            'tw-bg-countries-dark-elemement': props.darkMode,
+            'tw-bg-countries-light-elemement': !props.darkMode,
             'tw-border-b-2 tw-border-gray-200': !props.darkMode,
           }
         )}
       >
         <span className=" tw-text-xl tw-font-bold">Where in the world?</span>
         <button
-          className={classNames(
-            'tw-flex tw-items-center tw-gap-2 tw-text-countries-dark-text',
-            {
-              'tw-text-countries-light-text': !props.darkMode,
-            }
-          )}
+          className="tw-flex tw-items-center tw-gap-2"
           onClick={() => props.setDarkMode(!props.darkMode)}
         >
           <svg viewBox="0 0 256 256">
@@ -42,8 +40,7 @@ export function Layout(props: LayoutProps) {
       </div>
       <div
         className={classNames('tw-h-full tw-w-full', {
-          ' tw-bg-countries-dark-background tw-text-countries-dark-text':
-            props.darkMode,
+          'tw-bg-countries-dark-background': props.darkMode,
         })}
       >
         {props.children}
