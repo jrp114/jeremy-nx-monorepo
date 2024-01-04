@@ -16,7 +16,7 @@ export function Layout(props: LayoutProps) {
     >
       <div
         className={classNames(
-          'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-sticky',
+          'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-sticky tw-z-10',
           {
             'tw-bg-countries-dark-elemement': props.darkMode,
             'tw-bg-countries-light-elemement': !props.darkMode,

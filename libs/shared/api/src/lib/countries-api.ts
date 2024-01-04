@@ -24,4 +24,13 @@ export const countriesApi = {
       return [];
     }
   },
+  byRegion: async (region: string) => {
+    const countries = await fetch(
+      countriesUrl +
+        `/region/${region}?fields=name,capital,flags,population,region`
+    );
+    return countries
+      .json()
+      .then((data) => data.map((country: any) => mapCard(country)));
+  },
 };
