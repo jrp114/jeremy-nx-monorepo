@@ -22,7 +22,8 @@ export function FeatureHome() {
     countriesApi.byRegion(v.value).then((res) => setCountries(res));
   }, []);
 
-  const handleSearchChange = debounce(async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = debounce(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
       // we'll abort any previous request
       if (ref.current) {
         ref.current.abort();
@@ -39,48 +40,52 @@ export function FeatureHome() {
         const res = await countriesApi.all();
         setCountries(res);
       }
-    }, 750)
+    },
+    750,
+  );
 
   return (
     <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
-      <div className="tw-flex tw-justify-between tw-px-14 tw-pt-6">
-        <InputField
-          darkMode={darkMode}
-          handleSearchChange={handleSearchChange}
-          placeholder="Search for a country..."
-        />
-        <Dropdown
-          classes={
-            darkMode
-              ? 'tw-bg-countries-dark-elemement'
-              : 'tw-bg-countries-light-elemement'
-          }
-          options={[
-            { label: 'Americas', value: 'americas', key: 'americas' },
-            {
-              label: 'Africa',
-              value: 'africa',
-              key: 'africa',
-            },
-            { label: 'Asia', value: 'asia', key: 'asia' },
-            { label: 'Europe', value: 'europe', key: 'europe' },
-            {
-              label: 'Oceania',
-              value: 'oceania',
-              key: 'oceania',
-            },
-          ]}
-          handleClick={handleDropdownChange}
-          label={region || 'Filter by Region'}
-        />
-      </div>
+      <div className="tw-px-10">
+        <div className="tw-flex tw-justify-between tw-py-10">
+          <InputField
+            darkMode={darkMode}
+            handleSearchChange={handleSearchChange}
+            placeholder="Search for a country..."
+          />
+          <Dropdown
+            classes={
+              darkMode
+                ? 'tw-bg-countries-dark-elemement'
+                : 'tw-bg-countries-light-elemement'
+            }
+            options={[
+              { label: 'Americas', value: 'americas', key: 'americas' },
+              {
+                label: 'Africa',
+                value: 'africa',
+                key: 'africa',
+              },
+              { label: 'Asia', value: 'asia', key: 'asia' },
+              { label: 'Europe', value: 'europe', key: 'europe' },
+              {
+                label: 'Oceania',
+                value: 'oceania',
+                key: 'oceania',
+              },
+            ]}
+            handleClick={handleDropdownChange}
+            label={region || 'Filter by Region'}
+          />
+        </div>
 
-      <div className="tw-flex tw-flex-wrap tw-gap-14 tw-p-14">
-        {countries.map((country) => (
-          <div key={country.name}>
-            <Card darkMode={darkMode} country={country} />
-          </div>
-        ))}
+        <div className="tw-flex tw-flex-wrap tw-gap-12">
+          {countries.map((country) => (
+            <div key={country.name}>
+              <Card darkMode={darkMode} country={country} />
+            </div>
+          ))}
+        </div>
       </div>
     </Layout>
   );
