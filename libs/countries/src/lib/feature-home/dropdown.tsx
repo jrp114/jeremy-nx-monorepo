@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useRef, useState } from 'react';
+import { useOutsideClick } from './useOutsideClick';
 
 export interface DropdownOption {
   key: string;
@@ -21,9 +22,12 @@ interface DropdownProps {
  */
 export default function Dropdown(props: DropdownProps) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(ref, () => setOpen(false));
 
   return (
-    <div className="tw-relative">
+    <div ref={ref} className="tw-relative">
       <button
         onClick={() => setOpen(!open)}
         className={`${props.classes} tw-shadow-md tw-rounded-sm tw-py-2 tw-px-4 tw-w-full tw-flex tw-items-center tw-gap-8 tw-text-sm`}
