@@ -4,12 +4,14 @@ import Layout from '../layout/layout';
 import Card from './card';
 import Dropdown, { DropdownOption } from './dropdown';
 import { InputField } from './input-field';
+import useDebounce from './useDebounce';
 
 export function FeatureHome() {
   const [countries, setCountries] = useState<Array<Country>>([]);
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [region, setRegion] = useState<string | null>(null);
   const ref = useRef<AbortController>();
+  const debounce = useDebounce();
 
   useEffect(() => {
     countriesApi.all().then((res) => setCountries(res));
@@ -20,8 +22,7 @@ export function FeatureHome() {
     countriesApi.byRegion(v.value).then((res) => setCountries(res));
   }, []);
 
-  const handleSearchChange = useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = debounce(async (e: React.ChangeEvent<HTMLInputElement>) => {
       // we'll abort any previous request
       if (ref.current) {
         ref.current.abort();
@@ -38,9 +39,7 @@ export function FeatureHome() {
         const res = await countriesApi.all();
         setCountries(res);
       }
-    },
-    []
-  );
+    }, 750)
 
   return (
     <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
