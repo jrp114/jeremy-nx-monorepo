@@ -1,1 +1,1 @@
-export * from './lib/countries-api';
+export * as countriesApi from './lib/countries-api';

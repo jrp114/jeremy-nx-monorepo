@@ -1,4 +1,4 @@
-import { Country, countriesApi } from '@jeremy-nx-monorepo/shared/api';
+import { countriesApi } from '@jeremy-nx-monorepo/shared/api';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '../layout/layout';
 import Card from './card';
@@ -7,7 +7,7 @@ import { InputField } from './input-field';
 import useDebounce from './useDebounce';
 
 export function FeatureHome() {
-  const [countries, setCountries] = useState<Array<Country>>([]);
+  const [countries, setCountries] = useState<Array<countriesApi.Country>>([]);
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [region, setRegion] = useState<string | null>(null);
   const ref = useRef<AbortController>();
