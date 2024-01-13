@@ -1,4 +1,5 @@
 import { countriesApi } from '@jeremy-nx-monorepo/shared/api';
+import { useDarkModeContext } from '@jeremy-nx-monorepo/shared/ui-components';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '../layout/layout';
 import Card from './card';
@@ -8,8 +9,8 @@ import useDebounce from './useDebounce';
 
 export function FeatureHome() {
   const [countries, setCountries] = useState<Array<countriesApi.Country>>([]);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
   const [region, setRegion] = useState<string | null>(null);
+  const { darkMode, toggleDarkMode } = useDarkModeContext();
   const ref = useRef<AbortController>();
   const debounce = useDebounce();
 
@@ -41,11 +42,11 @@ export function FeatureHome() {
         setCountries(res);
       }
     },
-    750,
+    750
   );
 
   return (
-    <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
+    <Layout>
       <div className="tw-px-10">
         <div className="tw-flex tw-justify-between tw-py-10">
           <InputField
