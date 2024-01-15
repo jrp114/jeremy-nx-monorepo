@@ -48,7 +48,7 @@ export function FeatureHome() {
   return (
     <Layout>
       <div className="tw-px-10">
-        <div className="tw-flex tw-justify-between tw-py-10">
+        <div className="tw-flex tw-justify-between tw-py-10 xs:tw-flex-col sm:tw-flex-row xs:tw-gap-6">
           <InputField
             darkMode={darkMode}
             handleSearchChange={handleSearchChange}
@@ -57,8 +57,8 @@ export function FeatureHome() {
           <Dropdown
             classes={
               darkMode
-                ? 'tw-bg-countries-dark-elemement'
-                : 'tw-bg-countries-light-elemement'
+                ? 'tw-bg-countries-dark-elemement tw-w-48'
+                : 'tw-bg-countries-light-elemement tw-w-48'
             }
             options={[
               { label: 'Americas', value: 'americas', key: 'americas' },
@@ -80,9 +80,9 @@ export function FeatureHome() {
           />
         </div>
 
-        <div className="tw-flex tw-flex-wrap tw-gap-12">
+        <div className="tw-flex tw-flex-wrap tw-gap-12 xs:tw-justify-center sm:tw-justify-start">
           {countries.map((country) => (
-            <div key={country.name}>
+            <div className="xs:tw-w-full sm:tw-w-fit" key={country.name}>
               <Card country={country} />
             </div>
           ))}

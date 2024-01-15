@@ -8,7 +8,7 @@ interface InputFieldProps {
 
 export function InputField(props: InputFieldProps) {
   return (
-    <div className="tw-relative tw-block">
+    <div className="tw-relative xs:tw-w-full sm:tw-w-96">
       <span className="tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center tw-pl-3">
         <svg
           className={classNames('tw-h-5 tw-w-5', {

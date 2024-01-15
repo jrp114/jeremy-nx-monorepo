@@ -2,6 +2,9 @@ module.exports = {
   prefix: 'tw-',
   theme: {
     extend: {
+      screens: {
+        xs: '375px',
+      },
       colors: {
         primary: '#a0aec0',
         countries: {

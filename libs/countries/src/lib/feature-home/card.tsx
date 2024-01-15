@@ -14,7 +14,7 @@ export function Card(props: CardProps) {
     <div
       onClick={() => navigate(`/country?code=${props.country.cca3}`)}
       className={classNames(
-        'tw-shadow-xl tw-h-[350px] tw-w-72 tw-cursor-pointer',
+        'tw-shadow-xl tw-h-[350px] sm:tw-w-72 xs:tw-w-full tw-cursor-pointer',
         {
           'tw-bg-countries-dark-elemement': darkMode,
           'tw-bg-countries-light-elemement': !darkMode,

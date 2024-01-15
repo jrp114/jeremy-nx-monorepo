@@ -30,7 +30,7 @@ export default function Dropdown(props: DropdownProps) {
     <div ref={ref} className="tw-relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`${props.classes} tw-shadow-md tw-rounded-sm tw-py-2 tw-px-4 tw-w-full tw-flex tw-items-center tw-gap-8 tw-text-sm`}
+        className={`${props.classes} tw-shadow-md tw-rounded-sm tw-py-2 tw-px-4 tw-flex tw-justify-between tw-items-center tw-gap-8 tw-text-sm`}
       >
         {props.label}
         <div className="tw-w-4 tw-h-4">
@@ -46,7 +46,7 @@ export default function Dropdown(props: DropdownProps) {
       </button>
       {open && (
         <div
-          className={`${props.classes} tw-absolute tw-w-full tw-shadow-md tw-rounded-sm tw-py-2 tw-mt-1`}
+          className={`${props.classes} tw-absolute tw-shadow-md tw-rounded-sm tw-py-2 tw-mt-1`}
         >
           {props.options.map((option) => (
             <div
