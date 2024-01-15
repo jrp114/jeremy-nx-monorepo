@@ -83,7 +83,7 @@ export function FeatureHome() {
         <div className="tw-flex tw-flex-wrap tw-gap-12">
           {countries.map((country) => (
             <div key={country.name}>
-              <Card darkMode={darkMode} country={country} />
+              <Card country={country} />
             </div>
           ))}
         </div>

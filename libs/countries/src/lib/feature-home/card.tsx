@@ -1,20 +1,27 @@
-import { Country } from '@jeremy-nx-monorepo/shared/api';
+import { countriesApi } from '@jeremy-nx-monorepo/shared/api';
+import { useDarkModeContext } from '@jeremy-nx-monorepo/shared/ui-components';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router';
 
 export interface CardProps {
-  darkMode: boolean;
-  country: Country;
+  country: countriesApi.Country;
 }
 
 export function Card(props: CardProps) {
+  const navigate = useNavigate();
+  const { darkMode } = useDarkModeContext();
   return (
     <div
-      className={classNames('tw-shadow-xl tw-w-72', {
-        'tw-bg-countries-dark-elemement': props.darkMode,
-        'tw-bg-countries-light-elemement': !props.darkMode,
-      })}
+      onClick={() => navigate(`/country?code=${props.country.cca3}`)}
+      className={classNames(
+        'tw-shadow-xl tw-h-[350px] tw-w-72 tw-cursor-pointer',
+        {
+          'tw-bg-countries-dark-elemement': darkMode,
+          'tw-bg-countries-light-elemement': !darkMode,
+        }
+      )}
     >
-      <div className="tw-h-36 tw-w-full tw-bg-cover tw-bg-center tw-bg-no-repeat tw-shadow-md">
+      <div className=" tw-h-44 tw-w-full tw-bg-cover tw-bg-center tw-bg-no-repeat tw-border tw-border-gray-300 tw-shadow-md">
         <img
           className="tw-self-stretch tw-object-cover tw-h-full tw-w-full"
           src={props.country.flag}

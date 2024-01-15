@@ -16,7 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@jeremy-nx-monorepo/countries": ["libs/countries/src/index.ts"],
-      "@jeremy-nx-monorepo/shared/api": ["libs/shared/api/src/index.ts"]
+      "@jeremy-nx-monorepo/shared/api": ["libs/shared/api/src/index.ts"],
+      "@jeremy-nx-monorepo/shared/ui-components": [
+        "libs/shared/ui-components/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
