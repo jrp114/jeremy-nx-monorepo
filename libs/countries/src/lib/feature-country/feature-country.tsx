@@ -31,7 +31,7 @@ export function FeatureCountry(props: FeatureCountryProps) {
 
   return (
     <Layout>
-      <div className="tw-h-screen tw-px-10">
+      <div className="tw-px-10">
         <div className="tw-py-10">
           <button
             onClick={() => navigate(-1)}
@@ -58,10 +58,10 @@ export function FeatureCountry(props: FeatureCountryProps) {
           </button>
         </div>
 
-        <div className="tw-flex tw-flex-row tw-items-center tw-gap-20 tw-text-countries-light-text">
+        <div className="tw-flex sm:tw-flex-row xs:tw-flex-col tw-items-center tw-gap-20 tw-text-countries-light-text">
           <div className="tw-border tw-border-gray-300 tw-shadow-md">
             <img
-              className="tw-max-w-[600px] tw-max-h-[500px] tw-object-cover"
+              className="sm:tw-max-w-[600px] sm:tw-max-h-[500px] tw-object-cover xs:tw-max-w-full xs:tw-max-h-full"
               src={country?.flag}
               alt={country?.name}
             />

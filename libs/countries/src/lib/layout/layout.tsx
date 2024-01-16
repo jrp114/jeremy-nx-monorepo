@@ -10,14 +10,14 @@ export function Layout(props: LayoutProps) {
 
   return (
     <div
-      className={classNames('tw-font-nunito', {
+      className={classNames('tw-font-nunito tw-h-screen', {
         'tw-text-countries-dark-text': darkMode,
         'tw-text-countries-light-text': !darkMode,
       })}
     >
       <div
         className={classNames(
-          'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-sticky tw-z-10',
+          'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-z-10',
           {
             'tw-bg-countries-dark-elemement': darkMode,
             'tw-bg-countries-light-elemement': !darkMode,
@@ -42,9 +42,12 @@ export function Layout(props: LayoutProps) {
         </button>
       </div>
       <div
-        className={classNames('tw-h-full tw-w-full', {
-          'tw-bg-countries-dark-background': darkMode,
-        })}
+        className={classNames(
+          'tw-h-full tw-w-full tw-fixed tw-overflow-auto tw-pb-24',
+          {
+            'tw-bg-countries-dark-background': darkMode,
+          }
+        )}
       >
         {props.children}
       </div>
