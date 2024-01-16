@@ -21,13 +21,13 @@ export function FeatureCountry(props: FeatureCountryProps) {
   const [country, setCountry] = useState<countriesApi.CountryDetail | null>(
     null
   );
-  const { darkMode, toggleDarkMode } = useDarkModeContext();
+  const { darkMode } = useDarkModeContext();
 
   useEffect(() => {
     countriesApi.byCode(queryParams.get('code')).then((country) => {
       setCountry(country);
     });
-  }, [queryParams]);
+  }, [queryParams.get('code')]);
 
   return (
     <Layout>
