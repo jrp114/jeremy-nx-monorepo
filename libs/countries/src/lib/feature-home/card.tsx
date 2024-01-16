@@ -14,22 +14,22 @@ export function Card(props: CardProps) {
     <div
       onClick={() => navigate(`/country?code=${props.country.cca3}`)}
       className={classNames(
-        'tw-shadow-xl tw-h-[350px] sm:tw-w-72 xs:tw-w-full tw-cursor-pointer',
+        'tw-h-[350px] tw-cursor-pointer tw-shadow-xl xs:tw-w-full sm:tw-w-72',
         {
           'tw-bg-countries-dark-elemement': darkMode,
           'tw-bg-countries-light-elemement': !darkMode,
-        }
+        },
       )}
     >
-      <div className=" tw-h-44 tw-w-full tw-bg-cover tw-bg-center tw-bg-no-repeat tw-border tw-border-gray-300 tw-shadow-md">
+      <div className=" tw-h-44 tw-w-full tw-border tw-border-gray-300 tw-bg-cover tw-bg-center tw-bg-no-repeat tw-shadow-md">
         <img
-          className="tw-self-stretch tw-object-cover tw-h-full tw-w-full"
+          className="tw-h-full tw-w-full tw-self-stretch tw-object-cover"
           src={props.country.flag}
           alt={props.country.name}
         />
       </div>
       <div className="tw-p-6 tw-py-4">
-        <div className="tw-text-lg tw-font-extrabold tw-pb-3">
+        <div className="tw-pb-3 tw-text-lg tw-font-extrabold">
           {props.country.name}
         </div>
         <div className="tw-text-sm">

@@ -42,13 +42,13 @@ export function FeatureHome() {
         setCountries(res);
       }
     },
-    750
+    750,
   );
 
   return (
     <Layout>
       <div className="tw-px-10">
-        <div className="tw-flex tw-justify-between tw-py-10 xs:tw-flex-col sm:tw-flex-row xs:tw-gap-6">
+        <div className="tw-flex tw-justify-between tw-py-10 xs:tw-flex-col xs:tw-gap-6 sm:tw-flex-row ">
           <InputField
             darkMode={darkMode}
             handleSearchChange={handleSearchChange}

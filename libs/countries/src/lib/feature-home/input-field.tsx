@@ -32,11 +32,11 @@ export function InputField(props: InputFieldProps) {
         className={classNames(
           'tw-w-full tw-border tw-border-slate-300 tw-py-2 tw-pl-10 tw-pr-4 focus:tw-outline-none',
           {
-            'tw-text-countries-dark-text tw-bg-countries-dark-elemement':
+            'tw-bg-countries-dark-elemement tw-text-countries-dark-text':
               props.darkMode,
-            'tw-text-countries-light-text tw-bg-countries-light-elemement':
+            'tw-bg-countries-light-elemement tw-text-countries-light-text':
               !props.darkMode,
-          }
+          },
         )}
         placeholder={props.placeholder}
         type="text"

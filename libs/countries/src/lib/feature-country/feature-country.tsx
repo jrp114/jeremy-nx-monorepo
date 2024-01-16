@@ -19,7 +19,7 @@ export function FeatureCountry(props: FeatureCountryProps) {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const [country, setCountry] = useState<countriesApi.CountryDetail | null>(
-    null
+    null,
   );
   const { darkMode } = useDarkModeContext();
 
@@ -36,13 +36,13 @@ export function FeatureCountry(props: FeatureCountryProps) {
           <button
             onClick={() => navigate(-1)}
             className={classNames(
-              'tw-flex tw-flex-row tw-items-center tw-gap-2 tw-py-2 tw-px-6 tw-rounded tw-shadow-md tw-border tw-border-gray-300',
+              'tw-flex tw-flex-row tw-items-center tw-gap-2 tw-rounded tw-border tw-border-gray-300 tw-py-2 tw-px-6 tw-shadow-md',
               {
                 'tw-bg-countries-dark-elemement tw-text-countries-dark-text':
                   darkMode,
                 'tw-bg-countries-light-elemement tw-text-countries-light-text':
                   !darkMode,
-              }
+              },
             )}
           >
             <svg
@@ -58,10 +58,10 @@ export function FeatureCountry(props: FeatureCountryProps) {
           </button>
         </div>
 
-        <div className="tw-flex sm:tw-flex-row xs:tw-flex-col tw-items-center tw-gap-20 tw-text-countries-light-text">
+        <div className="tw-flex tw-items-center tw-gap-20 tw-text-countries-light-text xs:tw-flex-col sm:tw-flex-row">
           <div className="tw-border tw-border-gray-300 tw-shadow-md">
             <img
-              className="sm:tw-max-w-[600px] sm:tw-max-h-[500px] tw-object-cover xs:tw-max-w-full xs:tw-max-h-full"
+              className="tw-object-cover xs:tw-max-h-full xs:tw-max-w-full sm:tw-max-h-[500px] sm:tw-max-w-[600px]"
               src={country?.flag}
               alt={country?.name}
             />
@@ -72,7 +72,7 @@ export function FeatureCountry(props: FeatureCountryProps) {
               ' tw-text-countries-light-text': !darkMode,
             })}
           >
-            <div className="tw-font-bold tw-text-2xl">{country?.name}</div>
+            <div className="tw-text-2xl tw-font-bold">{country?.name}</div>
             <div className="tw-flex tw-flex-row tw-gap-20">
               <div className="tw-flex tw-flex-col tw-gap-3">
                 <DetailSection
@@ -102,13 +102,13 @@ export function FeatureCountry(props: FeatureCountryProps) {
                 <DetailSection label="Languages:" value={country?.languages!} />
               </div>
             </div>
-            <div className="tw-pt-12 tw-flex tw-items-center tw-gap-2">
+            <div className="tw-flex tw-items-center tw-gap-2 tw-pt-12">
               <span className="tw-font-bold">Border Countries:</span>
-              <div className="tw-flex tw-flex-row tw-gap-2 tw-flex-wrap">
+              <div className="tw-flex tw-flex-row tw-flex-wrap tw-gap-2">
                 {country?.borders?.map((border) => (
                   <button
                     onClick={() => navigate(`/country?code=${border}`)}
-                    className="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-py-1 tw-px-6 tw-rounded tw-bg-countries-light-elemement tw-text-countries-light-text tw-shadow-md tw-border tw-border-gray-300"
+                    className="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-rounded tw-border tw-border-gray-300 tw-bg-countries-light-elemement tw-py-1 tw-px-6 tw-text-countries-light-text tw-shadow-md"
                   >
                     {border.toLowerCase()}
                   </button>

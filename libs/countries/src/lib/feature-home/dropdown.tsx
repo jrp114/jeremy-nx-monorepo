@@ -30,10 +30,10 @@ export default function Dropdown(props: DropdownProps) {
     <div ref={ref} className="tw-relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`${props.classes} tw-shadow-md tw-rounded-sm tw-py-2 tw-px-4 tw-flex tw-justify-between tw-items-center tw-gap-8 tw-text-sm`}
+        className={`${props.classes} tw-flex tw-items-center tw-justify-between tw-gap-8 tw-rounded-sm tw-py-2 tw-px-4 tw-text-sm tw-shadow-md`}
       >
         {props.label}
-        <div className="tw-w-4 tw-h-4">
+        <div className="tw-h-4 tw-w-4">
           <svg
             fill="none"
             stroke="currentColor"
@@ -46,7 +46,7 @@ export default function Dropdown(props: DropdownProps) {
       </button>
       {open && (
         <div
-          className={`${props.classes} tw-absolute tw-shadow-md tw-rounded-sm tw-py-2 tw-mt-1`}
+          className={`${props.classes} tw-absolute tw-mt-1 tw-rounded-sm tw-py-2 tw-shadow-md`}
         >
           {props.options.map((option) => (
             <div
@@ -55,7 +55,7 @@ export default function Dropdown(props: DropdownProps) {
                 setOpen(false);
                 props.handleClick(option);
               }}
-              className="tw-py-1 tw-text-sm tw-cursor-pointer hover:tw-bg-gray-100 hover:tw-text-black tw-px-4"
+              className="tw-cursor-pointer tw-py-1 tw-px-4 tw-text-sm hover:tw-bg-gray-100 hover:tw-text-black"
             >
               {option.label}
             </div>

@@ -10,19 +10,19 @@ export function Layout(props: LayoutProps) {
 
   return (
     <div
-      className={classNames('tw-font-nunito tw-h-screen', {
+      className={classNames('tw-h-screen tw-font-nunito', {
         'tw-text-countries-dark-text': darkMode,
         'tw-text-countries-light-text': !darkMode,
       })}
     >
       <div
         className={classNames(
-          'tw-py-4 tw-px-6 tw-flex tw-justify-between tw-items-center tw-top-0 tw-z-10',
+          'tw-top-0 tw-z-10 tw-flex tw-items-center tw-justify-between tw-py-4 tw-px-6',
           {
             'tw-bg-countries-dark-elemement': darkMode,
             'tw-bg-countries-light-elemement': !darkMode,
             'tw-border-b-2 tw-border-gray-200': !darkMode,
-          }
+          },
         )}
       >
         <span className=" tw-text-xl tw-font-bold">Where in the world?</span>
@@ -30,7 +30,7 @@ export function Layout(props: LayoutProps) {
           className="tw-flex tw-items-center tw-gap-2"
           onClick={() => toggleDarkMode()}
         >
-          <div className="tw-w-4 tw-h-4">
+          <div className="tw-h-4 tw-w-4">
             <svg viewBox="0 0 256 256">
               <path
                 fill={darkMode ? '#fff' : '#000'}
@@ -43,10 +43,10 @@ export function Layout(props: LayoutProps) {
       </div>
       <div
         className={classNames(
-          'tw-h-full tw-w-full tw-fixed tw-overflow-auto tw-pb-24',
+          'tw-fixed tw-h-full tw-w-full tw-overflow-auto tw-pb-24',
           {
             'tw-bg-countries-dark-background': darkMode,
-          }
+          },
         )}
       >
         {props.children}
